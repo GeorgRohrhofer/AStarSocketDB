@@ -1,0 +1,8 @@
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\bin\Debug\Server.exe.config
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\bin\Debug\Server.exe
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\bin\Debug\Server.pdb
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\obj\Debug\Server.exe
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Server\obj\Debug\Server.pdb
