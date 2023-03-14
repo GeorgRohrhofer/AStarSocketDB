@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Server
 {
@@ -68,7 +69,17 @@ namespace Server
                 {
                     line = msg.Substring(7, msg.Length - 8);
                     parts = line.Split(new char[] { ',' });
-                    nodes.Search(parts[0], parts[1]);
+                    List<string> result = nodes.Search(parts[0], parts[1]);
+
+                    string returnValue = "";
+
+                    foreach(string s in result)
+                    {
+                        returnValue += s + ",";
+                    }
+
+                    byte[] msgByte = Encoding.UTF8.GetBytes(returnValue);
+                    clientHandler.Send(msgByte);
                 }
                 else if (msg.StartsWith("print"))
                 {

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AStarSocketDB
 {
@@ -155,7 +156,13 @@ namespace AStarSocketDB
             int bytesRecieved = socket_conn.Receive(bytes);
             msg = Encoding.ASCII.GetString(bytes, 0, bytesRecieved);
 
-            
+            string[] parts = msg.Split(',');
+
+            foreach(string s in parts)
+            {
+                if(nodes.ContainsKey(s))
+                    nodes[s].IsMarked = true;
+            }
             
         }
 

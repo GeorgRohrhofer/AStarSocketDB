@@ -135,6 +135,7 @@ namespace AStarSocketDB
 
                 BinaryFormatter bf = new BinaryFormatter();
                 nodes = (NodeManagement)bf.Deserialize(fs);
+
                 Invalidate();
 
                 fs.Close();

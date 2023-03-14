@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClosedList.cs" />
     <Compile Include="diagNewClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,10 +58,8 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="ListEntry.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="NodeManagement.cs" />
-    <Compile Include="OpenList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="diagNewClient.resx">
