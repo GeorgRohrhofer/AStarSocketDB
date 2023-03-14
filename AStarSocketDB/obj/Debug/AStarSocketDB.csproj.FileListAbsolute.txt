@@ -30,3 +30,4 @@ C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Proj
 C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\AStarSocketDB\obj\Debug\AStarSocketDB.csproj.CoreCompileInputs.cache
 C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\AStarSocketDB\obj\Debug\AStarSocketDB.exe
 C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\AStarSocketDB\obj\Debug\AStarSocketDB.pdb
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\AStarSocketDB\obj\Debug\AStarSocketDB.diagNewClient.resources

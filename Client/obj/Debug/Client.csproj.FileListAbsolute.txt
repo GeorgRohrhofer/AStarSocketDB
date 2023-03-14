@@ -9,3 +9,4 @@ C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Proj
 C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Client\bin\Debug\Client.pdb
 C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Client\obj\Debug\Client.exe
 C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Client\obj\Debug\Client.pdb
+C:\Users\georg\OneDrive - HTBLuVA Wiener Neustadt\5BHIF-DESKTOP-15LK2VT\POS\Projects\AStarSocketDB-master\AStarSocketDB-master\Client\obj\Debug\Client.diagNewClient.resources

@@ -43,6 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClosedList.cs" />
+    <Compile Include="ListEntry.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="NodeManagement.cs" />
+    <Compile Include="OpenList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Server.cs" />

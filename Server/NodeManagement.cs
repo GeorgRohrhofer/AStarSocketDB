@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AStarSocketDB
+namespace Server
 {
     [Serializable]
     internal class NodeManagement
@@ -68,23 +68,16 @@ namespace AStarSocketDB
 
             string msg;
             byte[] msgByte;
-            msg = "addPoint(" + (nodes.Count) + "," + x + "," + y + ")";
-
-            msgByte = Encoding.UTF8.GetBytes(msg);
-            Socket_Conn.Send(msgByte);
+            msg = "addPoint(" + (nodes.Count+1) + "," + x + "," + y + ")";
         }
 
-        public void Paint(Graphics g)
+        public void Add(string desc, int x, int y)
         {
-            foreach (Node n in nodes.Values)
-            {
-                n.PaintNeighbours(g);
-            }
+            nodes.Add(desc + "", new Node((nodes.Count + 1) + "", x, y));
 
-            foreach (Node n in nodes.Values)
-            {
-                n.Paint(g);
-            }
+            string msg;
+            byte[] msgByte;
+            msg = "addPoint(" + (nodes.Count + 1) + "," + x + "," + y + ")";
         }
 
         public Node IsInNode(int x, int y)
@@ -140,23 +133,59 @@ namespace AStarSocketDB
             return false;
         }
 
-        public void Search()
+        public List<string> Search(string snode, string enode)
         {
+            startNode = nodes[snode];
+            endNode = nodes[enode];
             ResetMarked();
+            OpenList openList = new OpenList();
+            ClosedList closedList = new ClosedList();
 
-            string msg;
-            byte[] msgByte;
-            msg = "search(" + StartNode.Desc + "," + EndNode.Desc + ")";
+            ListEntry entry = new ListEntry(startNode, 0, (int)startNode.Distance(endNode.X, endNode.Y) ,null);
+            openList.Add(entry);
+            entry = openList.GetBest();
 
-            msgByte = Encoding.UTF8.GetBytes(msg);
-            Socket_Conn.Send(msgByte);
+            while ((entry != null))
+            {
+                foreach(Node n in entry.NodeEntry.GetNeighbours().Keys)
+                {
+                    if (closedList.IsInClosed(n))
+                    {
+                        
+                    }
+                    else if (!openList.IsInOpen(n))
+                    {
+                        ListEntry newEntry = new ListEntry(n, entry.Distance + entry.NodeEntry.GetDistanceTo(n), (int)n.Distance(endNode.X, endNode.Y),entry.NodeEntry);
+                        openList.Add(newEntry);
+                    }
+                    else
+                    {
+                        ListEntry e = openList.Get(n);
+                        if(entry.Distance + entry.NodeEntry.GetDistanceTo(n) < e.Distance)
+                        {
+                            e.Distance = entry.Distance + entry.NodeEntry.GetDistanceTo(n);
+                            e.Predecessor = entry.NodeEntry;
+                        }
+                    }
+                }
+                closedList.Add(entry);
+                entry = openList.GetBest();
+            }
 
-            byte[] bytes = new byte[8192];
-            int bytesRecieved = socket_conn.Receive(bytes);
-            msg = Encoding.ASCII.GetString(bytes, 0, bytesRecieved);
+            List<Node> result = closedList.GetResult(EndNode);
+            resultPath = new List<Node>();
+            List<string> resultPathstring = new List<string>();
+            foreach(Node n in result)
+            {
+                n.IsMarked = true;
+                resultPath.Add(n);
+            }
+            foreach(Node n in resultPath)
+            {
+                resultPathstring.Add(n.Desc);
+            }
 
-            
-            
+            return resultPathstring;
         }
 
         public void ResetMarked()
@@ -167,21 +196,22 @@ namespace AStarSocketDB
             }
         }
 
+        public void Print()
+        {
+            foreach(Node n in nodes.Values)
+            {
+                n.Print();
+            }
+        }
+
         public bool AddConnection(string n1, string n2, int dist)
         {
-            if (nodes.ContainsKey(n1) && nodes.ContainsKey(n2))
+            if(nodes.ContainsKey(n1) && nodes.ContainsKey(n2))
             {
-                string msg;
-                byte[] msgByte;
-                msg = "addConnection(" + n1 + "," + n2 + "," + dist + ")";
-
-                msgByte = Encoding.UTF8.GetBytes(msg);
-                Socket_Conn.Send(msgByte);
-
                 return nodes[n1].AddNeighbour(nodes[n2], dist) && nodes[n2].AddNeighbour(nodes[n1], dist);
             }
-            return false;   
 
+            return false;
         }
     }
 }

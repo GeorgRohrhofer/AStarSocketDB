@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClosedList.cs" />
+    <Compile Include="diagNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="diagNewClient.Designer.cs">
+      <DependentUpon>diagNewClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     <Compile Include="OpenList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="diagNewClient.resx">
+      <DependentUpon>diagNewClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

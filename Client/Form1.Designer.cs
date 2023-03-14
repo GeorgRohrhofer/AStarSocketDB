@@ -33,6 +33,10 @@
             this.miConnect = new System.Windows.Forms.ToolStripMenuItem();
             this.miDisconnect = new System.Windows.Forms.ToolStripMenuItem();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.txt_cmd = new System.Windows.Forms.Label();
+            this.txtbox_cmd = new System.Windows.Forms.TextBox();
+            this.btn_send = new System.Windows.Forms.Button();
+            this.lstbHistory = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,11 +82,48 @@
             this.miExit.Text = "Exit";
             this.miExit.Click += new System.EventHandler(this.miExit_Click);
             // 
+            // txt_cmd
+            // 
+            this.txt_cmd.AutoSize = true;
+            this.txt_cmd.Location = new System.Drawing.Point(45, 55);
+            this.txt_cmd.Name = "txt_cmd";
+            this.txt_cmd.Size = new System.Drawing.Size(54, 13);
+            this.txt_cmd.TabIndex = 1;
+            this.txt_cmd.Text = "Command";
+            // 
+            // txtbox_cmd
+            // 
+            this.txtbox_cmd.Location = new System.Drawing.Point(105, 52);
+            this.txtbox_cmd.Name = "txtbox_cmd";
+            this.txtbox_cmd.Size = new System.Drawing.Size(617, 20);
+            this.txtbox_cmd.TabIndex = 2;
+            // 
+            // btn_send
+            // 
+            this.btn_send.Location = new System.Drawing.Point(728, 52);
+            this.btn_send.Name = "btn_send";
+            this.btn_send.Size = new System.Drawing.Size(60, 20);
+            this.btn_send.TabIndex = 3;
+            this.btn_send.Text = "Send";
+            this.btn_send.UseVisualStyleBackColor = true;
+            // 
+            // lstbHistory
+            // 
+            this.lstbHistory.FormattingEnabled = true;
+            this.lstbHistory.Location = new System.Drawing.Point(105, 78);
+            this.lstbHistory.Name = "lstbHistory";
+            this.lstbHistory.Size = new System.Drawing.Size(617, 173);
+            this.lstbHistory.TabIndex = 4;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 263);
+            this.Controls.Add(this.lstbHistory);
+            this.Controls.Add(this.btn_send);
+            this.Controls.Add(this.txtbox_cmd);
+            this.Controls.Add(this.txt_cmd);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
@@ -101,6 +142,10 @@
         private System.Windows.Forms.ToolStripMenuItem miConnect;
         private System.Windows.Forms.ToolStripMenuItem miDisconnect;
         private System.Windows.Forms.ToolStripMenuItem miExit;
+        private System.Windows.Forms.Label txt_cmd;
+        private System.Windows.Forms.TextBox txtbox_cmd;
+        private System.Windows.Forms.Button btn_send;
+        private System.Windows.Forms.ListBox lstbHistory;
     }
 }
 

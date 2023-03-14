@@ -35,6 +35,9 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.miOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.miSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
+            this.miConnect = new System.Windows.Forms.ToolStripMenuItem();
+            this.miDisconnect = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.miExit = new System.Windows.Forms.ToolStripMenuItem();
             this.cmEditNode = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -43,6 +46,8 @@
             this.miResetStartEndNode = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.miDeleteNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStrip.SuspendLayout();
             this.cmEditNode.SuspendLayout();
             this.SuspendLayout();
@@ -64,8 +69,12 @@
             this.toolStripMenuItem1,
             this.miOpen,
             this.miSave,
+            this.toolStripMenuItem4,
+            this.miConnect,
+            this.miDisconnect,
             this.toolStripMenuItem2,
-            this.miExit});
+            this.miExit,
+            this.printToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -74,20 +83,20 @@
             // 
             this.miNew.Name = "miNew";
             this.miNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.miNew.Size = new System.Drawing.Size(148, 22);
+            this.miNew.Size = new System.Drawing.Size(180, 22);
             this.miNew.Text = "New";
             this.miNew.Click += new System.EventHandler(this.miNew_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(145, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
             // 
             // miOpen
             // 
             this.miOpen.Name = "miOpen";
             this.miOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.miOpen.Size = new System.Drawing.Size(148, 22);
+            this.miOpen.Size = new System.Drawing.Size(180, 22);
             this.miOpen.Text = "Open";
             this.miOpen.Click += new System.EventHandler(this.miOpen_Click);
             // 
@@ -95,20 +104,39 @@
             // 
             this.miSave.Name = "miSave";
             this.miSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.miSave.Size = new System.Drawing.Size(148, 22);
+            this.miSave.Size = new System.Drawing.Size(180, 22);
             this.miSave.Text = "Save";
             this.miSave.Click += new System.EventHandler(this.miSave_Click);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // miConnect
+            // 
+            this.miConnect.Name = "miConnect";
+            this.miConnect.Size = new System.Drawing.Size(180, 22);
+            this.miConnect.Text = "Connect";
+            this.miConnect.Click += new System.EventHandler(this.miConnect_Click);
+            // 
+            // miDisconnect
+            // 
+            this.miDisconnect.Name = "miDisconnect";
+            this.miDisconnect.Size = new System.Drawing.Size(180, 22);
+            this.miDisconnect.Text = "Disconnect";
+            this.miDisconnect.Click += new System.EventHandler(this.miDisconnect_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(145, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // miExit
             // 
             this.miExit.Name = "miExit";
             this.miExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.miExit.Size = new System.Drawing.Size(148, 22);
+            this.miExit.Size = new System.Drawing.Size(180, 22);
             this.miExit.Text = "Exit";
             // 
             // cmEditNode
@@ -120,7 +148,7 @@
             this.toolStripMenuItem3,
             this.miDeleteNode});
             this.cmEditNode.Name = "ctxm_EditNode";
-            this.cmEditNode.Size = new System.Drawing.Size(208, 120);
+            this.cmEditNode.Size = new System.Drawing.Size(208, 98);
             // 
             // miSetStartNode
             // 
@@ -153,6 +181,13 @@
             this.miDeleteNode.Name = "miDeleteNode";
             this.miDeleteNode.Size = new System.Drawing.Size(207, 22);
             this.miDeleteNode.Text = "Delete";
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.printToolStripMenuItem.Text = "Print";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -191,6 +226,11 @@
         private System.Windows.Forms.ToolStripMenuItem miResetStartEndNode;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem miDeleteNode;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripMenuItem miConnect;
+        private System.Windows.Forms.ToolStripMenuItem miDisconnect;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
     }
 }
 
