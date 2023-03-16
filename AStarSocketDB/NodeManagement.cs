@@ -161,7 +161,8 @@ namespace AStarSocketDB
 
             foreach(string s in parts)
             {
-                if(nodes.ContainsKey(s))
+                if (s != null && nodes.ContainsKey(s))
+                    resultPath.Add(nodes[s]);
                     nodes[s].IsMarked = true;
             }
             
