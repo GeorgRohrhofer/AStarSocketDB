@@ -134,7 +134,11 @@ namespace AStarSocketDB
                 FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
 
                 BinaryFormatter bf = new BinaryFormatter();
+
                 nodes = (NodeManagement)bf.Deserialize(fs);
+
+                nodes.Socket_Conn = socket_sender;
+                nodes.send();
 
                 Invalidate();
 

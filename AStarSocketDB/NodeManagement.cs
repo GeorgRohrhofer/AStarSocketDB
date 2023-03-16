@@ -7,6 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace AStarSocketDB
 {
@@ -184,11 +185,40 @@ namespace AStarSocketDB
 
                 msgByte = Encoding.UTF8.GetBytes(msg);
                 Socket_Conn.Send(msgByte);
+                
 
                 return nodes[n1].AddNeighbour(nodes[n2], dist) && nodes[n2].AddNeighbour(nodes[n1], dist);
             }
             return false;   
 
+        }
+
+        public void send()
+        {
+            foreach(string s in nodes.Keys)
+            {
+                string msg = "";
+                byte[] msgByte;
+                msg = "addPoint(" + nodes[s].Desc + "," + nodes[s].X + "," + nodes[s].Y + ")";
+
+                msgByte = Encoding.UTF8.GetBytes(msg);
+                Socket_Conn.Send(msgByte);
+                Thread.Sleep(1);
+            }
+
+            foreach(string s in nodes.Keys)
+            {
+                string msg;
+                byte[] msgByte;
+                foreach(Node ne in nodes[s].GetNeighbours().Keys)
+                {
+                    msg = "addConnection(" + ne.Desc + "," + nodes[s].Desc + "," + nodes[s].GetNeighbours()[ne] + ")";
+
+                    msgByte = Encoding.UTF8.GetBytes(msg);
+                    Socket_Conn.Send(msgByte);
+                    Thread.Sleep(1);
+                }
+            }
         }
     }
 }
