@@ -213,5 +213,10 @@ namespace Server
 
             return false;
         }
+
+        public void moveNode(string desc, int x, int y)
+        {
+            nodes[desc].Move(x, y);
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Net.Http.Headers;
 
 namespace Server
 {
@@ -58,12 +59,18 @@ namespace Server
                     line = msg.Substring(9, msg.Length - 10);
                     parts = line.Split(new char[] { ',' });
                     nodes.Add(parts[0],  int.Parse(parts[1]), int.Parse(parts[2]));
+
+                    byte[] msgByte = Encoding.UTF8.GetBytes("ACK");
+                    clientHandler.Send(msgByte);
                 }
                 else if (msg.StartsWith("addConnection"))
                 {
                     line = msg.Substring(14, msg.Length - 15);
                     parts = line.Split(new char[] { ',' });
                     nodes.AddConnection(parts[0], parts[1], int.Parse(parts[2]));
+
+                    byte[] msgByte = Encoding.UTF8.GetBytes("ACK");
+                    clientHandler.Send(msgByte);
                 }
                 else if (msg.StartsWith("search"))
                 {
@@ -78,6 +85,7 @@ namespace Server
                         returnValue += s + ",";
                     }
 
+                    returnValue = returnValue.Remove(returnValue.Length - 1); //Die Zeile ist ein Hurensohn.
                     byte[] msgByte = Encoding.UTF8.GetBytes(returnValue);
                     clientHandler.Send(msgByte);
                 }
@@ -92,6 +100,12 @@ namespace Server
                 else if (msg.StartsWith("bye"))
                 {
                     Console.WriteLine("bye");
+                }
+                else if (msg.StartsWith("moveNode"))
+                {
+                    line = msg.Substring(9, msg.Length - 10);
+                    parts = line.Split(new char[] { ',' });
+                    nodes.moveNode(parts[0], int.Parse(parts[1]), int.Parse(parts[2]));
                 }
                 else
                 {

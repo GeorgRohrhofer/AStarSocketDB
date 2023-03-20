@@ -158,10 +158,10 @@ namespace AStarSocketDB
             msg = Encoding.ASCII.GetString(bytes, 0, bytesRecieved);
 
             string[] parts = msg.Split(',');
-
+            MessageBox.Show(msg);
             foreach(string s in parts)
             {
-                if (s != null && nodes.ContainsKey(s))
+                if (s != null && nodes.ContainsKey(s) && s != "")
                     resultPath.Add(nodes[s]);
                     nodes[s].IsMarked = true;
             }
@@ -194,7 +194,7 @@ namespace AStarSocketDB
 
         }
 
-        public void send()
+        public void SendAllNodeToServer()
         {
             foreach(string s in nodes.Keys)
             {
@@ -204,7 +204,16 @@ namespace AStarSocketDB
 
                 msgByte = Encoding.UTF8.GetBytes(msg);
                 Socket_Conn.Send(msgByte);
-                Thread.Sleep(1);
+
+
+                byte[] bytes = new byte[8192];
+                int bytesRec = Socket_Conn.Receive(bytes);
+                string return_msg = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+
+                if(return_msg != "ACK")
+                {
+                    MessageBox.Show("Error in Response");
+                }
             }
 
             foreach(string s in nodes.Keys)
@@ -217,9 +226,24 @@ namespace AStarSocketDB
 
                     msgByte = Encoding.UTF8.GetBytes(msg);
                     Socket_Conn.Send(msgByte);
-                    Thread.Sleep(1);
+                    byte[] bytes = new byte[8192];
+                    int bytesRec = Socket_Conn.Receive(bytes);
+                    string return_msg = Encoding.ASCII.GetString(bytes, 0, bytesRec);
+
+                    if (return_msg != "ACK")
+                    {
+                        MessageBox.Show("Error in Response");
+                    }
                 }
             }
+        }
+
+        public void SendMovedNodeToServer(Node n)
+        {
+            string msg = "moveNode(" + n.Desc + "," + n.X + "," + n.Y + ")";
+            byte[] msgByte = Encoding.UTF8.GetBytes(msg);
+
+            Socket_Conn.Send(msgByte);
         }
     }
 }

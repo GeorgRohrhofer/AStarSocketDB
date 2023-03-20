@@ -138,7 +138,7 @@ namespace AStarSocketDB
                 nodes = (NodeManagement)bf.Deserialize(fs);
 
                 nodes.Socket_Conn = socket_sender;
-                nodes.send();
+                nodes.SendAllNodeToServer();
 
                 Invalidate();
 
@@ -251,6 +251,11 @@ namespace AStarSocketDB
                     Invalidate();
                 }
             }
+            else if (moving)
+            {
+                nodes.SendMovedNodeToServer(actNode);
+            }
+
             connecting = false;
             moving = false;
 
