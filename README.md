@@ -2,10 +2,7 @@
 
 POS 5BHIF Projekt
 
-GUI - Graphen zeichnen
+Gibt noch Fehler im Search.
+Fehler beim suchen treten nur nach mehrfachem Suchen ohne Neustart auf.
 
-A* Pathfinding
-
-Server-Client based
-
-Graphen in Datenbank gespeichert
+Bei Fehlern und Hilfe bitte bei mir melden
